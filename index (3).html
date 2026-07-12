@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giancarlos Vieira Bandeira — Perfil Profissional</title>
+<meta name="description" content="Fundador da BandTech/BandGames · TI, Design Gráfico & Comunicação Visual · Servidor Público na Educação — Lago da Pedra, MA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#05070c;
+    --bg-alt:#0b0f18;
+    --cyan:#22d3ee;
+    --blue:#3b82f6;
+    --purple:#8b5cf6;
+    --white:#f5f7fa;
+    --muted:#9aa4b2;
+    --line:rgba(255,255,255,0.08);
+    --grad: linear-gradient(90deg, var(--cyan), var(--blue) 55%, var(--purple));
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg); color:var(--white); font-family:'Inter', sans-serif; line-height:1.65; overflow-x:hidden;}
+  h1,h2,h3,.wordmark{font-family:'Montserrat', sans-serif;}
+
+  .chip-field{
+    position:fixed; inset:0; z-index:-1;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(34,211,238,.35) 1px, transparent 1px),
+      radial-gradient(1px 1px at 80% 60%, rgba(139,92,246,.3) 1px, transparent 1px),
+      radial-gradient(1px 1px at 40% 80%, rgba(59,130,246,.3) 1px, transparent 1px);
+    background-size: 140px 140px, 180px 180px, 160px 160px;
+    opacity:.6;
+  }
+
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 6vw;
+    background:rgba(5,7,12,0.7);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .wordmark{font-weight:900; font-size:1.25rem;}
+  .wordmark span{background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  nav a{color:var(--muted); text-decoration:none; margin-left:24px; font-size:.88rem; font-weight:500; transition:color .2s;}
+  nav a:hover{color:var(--cyan);}
+  @media (max-width:700px){nav{display:none;}}
+
+  .hero{position:relative; min-height:74vh; display:flex; align-items:flex-end;}
+  .hero-cover{position:absolute; inset:0; background-image:url('capa.png'); background-size:cover; background-position:center 30%;}
+  .hero-cover::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(5,7,12,.15) 0%, rgba(5,7,12,.6) 65%, var(--bg) 100%);}
+  .hero-inner{position:relative; z-index:2; width:100%; padding:0 6vw 56px; display:flex; align-items:flex-end; gap:30px; flex-wrap:wrap;}
+  .avatar-ring{width:156px; height:156px; border-radius:50%; padding:4px; background:var(--grad); flex-shrink:0; box-shadow:0 10px 40px rgba(59,130,246,.35);}
+  .avatar-ring img{width:100%; height:100%; border-radius:50%; object-fit:cover; border:4px solid var(--bg); display:block;}
+  .hero-text{padding-bottom:6px;}
+  .eyebrow{text-transform:uppercase; letter-spacing:2.2px; font-size:.7rem; color:var(--cyan); font-weight:600; margin-bottom:10px;}
+  .hero-text h1{font-size:clamp(1.7rem, 4vw, 2.6rem); font-weight:800; margin-bottom:8px;}
+  .hero-text .role{color:var(--muted); font-size:1rem; max-width:560px; margin-bottom:10px;}
+  .hero-meta{color:var(--muted); font-size:.86rem; display:flex; gap:6px; flex-wrap:wrap;}
+  .hero-meta span::after{content:"◆"; margin-left:6px; color:var(--purple); font-size:.6rem; vertical-align:middle;}
+  .hero-meta span:last-child::after{content:none;}
+
+  .btn-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:20px; position:relative; z-index:2; padding:0 6vw 40px;}
+  .btn{padding:12px 26px; border-radius:999px; text-decoration:none; font-weight:600; font-size:.9rem; transition:transform .2s, box-shadow .2s; display:inline-block;}
+  .btn-primary{background:var(--grad); color:#05070c;}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 8px 24px rgba(59,130,246,.4);}
+  .btn-outline{border:1px solid var(--line); color:var(--white);}
+  .btn-outline:hover{border-color:var(--cyan); color:var(--cyan);}
+
+  section{padding:70px 6vw;}
+  .section-title{font-size:clamp(1.4rem, 3vw, 2rem); font-weight:800; margin-bottom:16px;}
+  .section-title .bar{display:block; width:52px; height:4px; border-radius:2px; background:var(--grad); margin-bottom:18px;}
+  .lede{color:var(--muted); max-width:680px; margin-bottom:36px; font-size:1rem;}
+  .lede strong{color:var(--white);}
+
+  /* Timeline */
+  .timeline{position:relative; padding-left:28px; border-left:2px solid var(--line); max-width:680px;}
+  .tl-item{position:relative; margin-bottom:34px;}
+  .tl-item:last-child{margin-bottom:0;}
+  .tl-item::before{content:""; position:absolute; left:-34px; top:4px; width:12px; height:12px; border-radius:50%; background:var(--grad);}
+  .tl-year{color:var(--cyan); font-size:.78rem; font-weight:700; letter-spacing:.5px; text-transform:uppercase; margin-bottom:4px;}
+  .tl-title{font-weight:700; font-size:1.02rem; margin-bottom:4px;}
+  .tl-desc{color:var(--muted); font-size:.9rem;}
+
+  .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:18px;}
+  .card{background:var(--bg-alt); border:1px solid var(--line); border-radius:14px; padding:24px; transition:transform .25s, border-color .25s;}
+  .card:hover{transform:translateY(-4px); border-color:rgba(34,211,238,.4);}
+  .card .tag{display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:8px; background:var(--grad); margin-bottom:14px; font-size:.75rem; font-weight:800; color:#05070c;}
+  .card h3{font-size:1rem; font-weight:700; margin-bottom:12px;}
+  .card ul{list-style:none; color:var(--muted); font-size:.87rem;}
+  .card li{padding:4px 0; border-top:1px solid var(--line);}
+  .card li:first-child{border-top:none;}
+
+  .social-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .social-card{background:var(--bg-alt); border:1px solid var(--line); border-radius:14px; padding:18px 22px; text-decoration:none; color:var(--white); flex:1 1 200px; transition:border-color .2s, transform .2s;}
+  .social-card:hover{border-color:rgba(34,211,238,.4); transform:translateY(-3px);}
+  .social-card .k{color:var(--cyan); font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.5px; margin-bottom:4px; display:block;}
+  .social-card .v{font-weight:600; font-size:.95rem;}
+
+  .cta{text-align:center; background:var(--bg-alt); border:1px solid var(--line); border-radius:20px; padding:52px 6vw; margin:0 6vw 70px;}
+  .cta h2{font-size:clamp(1.3rem,3vw,1.8rem); font-weight:800; margin-bottom:12px;}
+  .cta p{color:var(--muted); margin-bottom:24px;}
+
+  footer{padding:30px 6vw; text-align:center; color:var(--muted); font-size:.82rem; border-top:1px solid var(--line);}
+  footer .brandline{font-weight:700; letter-spacing:.5px; margin-bottom:6px;}
+  footer .brandline span{color:var(--cyan);}
+
+  @media (max-width:640px){
+    .hero-inner{flex-direction:column; align-items:flex-start; gap:16px;}
+    .btn-row{padding:0 6vw 32px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="chip-field"></div>
+
+<header>
+  <div class="wordmark">BAND<span>TECH</span></div>
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#trajetoria">Trajetória</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-cover"></div>
+  <div class="hero-inner">
+    <div class="avatar-ring"><img src="avatar.png" alt="Giancarlos Vieira Bandeira"></div>
+    <div class="hero-text">
+      <div class="eyebrow">Perfil Profissional</div>
+      <h1>Giancarlos Vieira Bandeira</h1>
+      <p class="role">Fundador da BandTech/BandGames · TI, Design Gráfico &amp; Comunicação Visual · Servidor Público na Educação</p>
+      <div class="hero-meta">
+        <span>Lago da Pedra, MA — Brasil</span>
+        <span>Atuando em TI desde 2005</span>
+        <span>Licenciado em Pedagogia e Educação Física</span>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="btn-row">
+  <a class="btn btn-primary" href="https://wa.me/5599991351548?text=Ol%C3%A1%2C%20Giancarlos!%20Vi%20seu%20perfil%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">Peça seu orçamento no WhatsApp</a>
+  <a class="btn btn-outline" href="https://www.instagram.com/bandtechlp" target="_blank" rel="noopener">Instagram</a>
+  <a class="btn btn-outline" href="https://www.tiktok.com/@gianbandeira" target="_blank" rel="noopener">TikTok</a>
+  <a class="btn btn-outline" href="https://www.facebook.com/share/1EVhBVPXzF/" target="_blank" rel="noopener">Facebook</a>
+</div>
+
+<section id="sobre">
+  <h2 class="section-title"><span class="bar"></span>Sobre</h2>
+  <p class="lede">
+    Em 2005 comecei a atuar na área de informática, sem imaginar ainda o quanto essa base técnica se tornaria o eixo da minha trajetória. Em junho de 2006 nasceu a <strong>BandGames</strong> — o projeto original. No mesmo ano, ingressei no serviço público na área da Educação no Maranhão, onde atuo até hoje, conciliando as duas frentes desde então.
+  </p>
+  <p class="lede">
+    Foi a partir da BandGames que nasceu a <strong>BandTech</strong>, ampliando o catálogo para consultas, documentação, suporte técnico, impressões, digitação e muito mais — sempre com a mesma essência de resolver o problema do cliente com agilidade.
+  </p>
+  <p class="lede">
+    Também assino artes gráficas em parceria com a <strong>Mega Criativa</strong> — logotipos, flyers e materiais para campeonatos — unindo domínio técnico a um olhar estético apurado em design gráfico, comunicação visual, edição de vídeo e marketing digital.
+  </p>
+  <p class="lede">
+    Sou licenciado em <strong>Pedagogia</strong> e em <strong>Educação Física</strong>, formação que sustenta minha atuação como servidor público na Educação e reforça a mesma base pedagógica que aplico ao explicar soluções técnicas de forma clara para quem me procura.
+  </p>
+  <p class="lede">O que me guia é simples: entregar o que prometo, no prazo combinado, com honestidade sobre o que é possível e o que não é.</p>
+</section>
+
+<section id="trajetoria">
+  <h2 class="section-title"><span class="bar"></span>Trajetória</h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-year">2005</div>
+      <div class="tl-title">Início na área de Informática</div>
+      <div class="tl-desc">Primeiros passos técnicos que formaram a base de tudo o que viria depois.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">Junho de 2006</div>
+      <div class="tl-title">Fundação da BandGames</div>
+      <div class="tl-desc">O projeto original — origem de tudo o que a marca é hoje.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2006 — atual</div>
+      <div class="tl-title">Servidor Público — Educação (Maranhão)</div>
+      <div class="tl-desc">Atuação contínua no serviço público, conciliada com os projetos empreendedores.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">A partir da BandGames</div>
+      <div class="tl-title">Nascimento da BandTech</div>
+      <div class="tl-desc">Soluções de informática, documentação e atendimento ao público em Lago da Pedra e região.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">Parceria</div>
+      <div class="tl-title">Mega Criativa — Design Gráfico</div>
+      <div class="tl-desc">Produção de artes para campeonatos, logotipos e flyers.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">Formação Acadêmica</div>
+      <div class="tl-title">Licenciatura em Pedagogia e Educação Física</div>
+      <div class="tl-desc">Ensino superior que fundamenta minha atuação na Educação e minha abordagem didática em todos os projetos.</div>
+    </div>
+  </div>
+</section>
+
+<section id="servicos">
+  <h2 class="section-title"><span class="bar"></span>Frentes de Atuação</h2>
+  <p class="lede">O que eu faço</p>
+  <div class="grid">
+    <div class="card">
+      <span class="tag">01</span>
+      <h3>TI &amp; Suporte Técnico <span style="color:var(--muted); font-weight:400;">— 7 serviços</span></h3>
+      <ul>
+        <li>Consulta Serasa/SPC</li>
+        <li>Configuração e desbloqueio de celular</li>
+        <li>Digitação de documentos</li>
+        <li>Impressões e fotocópias</li>
+        <li>Elaboração de currículos</li>
+        <li>Trabalhos escolares</li>
+        <li>Segunda via de boletos</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="tag">02</span>
+      <h3>Documentação &amp; Serviços Públicos <span style="color:var(--muted); font-weight:400;">— 7 serviços</span></h3>
+      <ul>
+        <li>Agendamento de passaporte</li>
+        <li>Serviços DETRAN</li>
+        <li>Serviços GOV.BR</li>
+        <li>Meu INSS — apoio com senha</li>
+        <li>Emissão de certidão negativa</li>
+        <li>Agendamento de RG</li>
+        <li>Certificados fotográficos e adesivos</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="tag">03</span>
+      <h3>Design &amp; Comunicação Visual <span style="color:var(--muted); font-weight:400;">— 4 frentes</span></h3>
+      <ul>
+        <li>Logotipos e identidade visual</li>
+        <li>Flyers e artes para campeonatos</li>
+        <li>Edição de vídeo</li>
+        <li>Marketing digital</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="tag">04</span>
+      <h3>BandGames — Entretenimento <span style="color:var(--muted); font-weight:400;">— 3 serviços</span></h3>
+      <ul>
+        <li>Jogos de PS2</li>
+        <li>Acessórios para games</li>
+        <li>Música, filmes e séries em pendrive</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contato">
+  <h2 class="section-title"><span class="bar"></span>Onde me encontrar</h2>
+  <div class="social-row">
+    <a class="social-card" href="https://www.instagram.com/bandtechlp" target="_blank" rel="noopener"><span class="k">Instagram</span><span class="v">@bandtechlp</span></a>
+    <a class="social-card" href="https://www.tiktok.com/@gianbandeira" target="_blank" rel="noopener"><span class="k">TikTok</span><span class="v">@gianbandeira</span></a>
+    <a class="social-card" href="https://www.facebook.com/share/1EVhBVPXzF/" target="_blank" rel="noopener"><span class="k">Facebook</span><span class="v">Perfil pessoal</span></a>
+    <a class="social-card" href="https://wa.me/5599991351548?text=Ol%C3%A1%2C%20Giancarlos!%20Vi%20seu%20perfil%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida." target="_blank" rel="noopener"><span class="k">WhatsApp</span><span class="v">(99) 99135-1548 · Orçamento · Dúvidas · Suporte</span></a>
+  </div>
+</section>
+
+<div class="cta">
+  <h2>Faço seu orçamento. Tire suas dúvidas. Sem enrolação.</h2>
+  <p>Atendo em Lago da Pedra — Maranhão e região — informática, documentação, design gráfico ou games. Chama no WhatsApp que eu respondo.</p>
+  <div class="btn-row" style="justify-content:center; padding:0;">
+    <a class="btn btn-primary" href="https://wa.me/5599991351548?text=Ol%C3%A1%2C%20Giancarlos!%20Vi%20seu%20perfil%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">Chamar no WhatsApp — (99) 99135-1548</a>
+    <a class="btn btn-outline" href="https://www.instagram.com/bandtechlp" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</div>
+
+<footer>
+  <div class="brandline">BANDGAMES <span>(JUN/2006)</span> → BANDTECH · MARANHÃO, BRASIL</div>
+  <div>© 2026 BandTech Soluções Digitais</div>
+</footer>
+
+</body>
+</html>
